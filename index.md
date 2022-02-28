@@ -1,37 +1,43 @@
-## Welcome to GitHub Pages
+# API Timeline
 
-You can use the [editor on GitHub](https://github.com/bnvsp/grpc-python/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+![API Timeline](res/API-Timeline.png)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## How RPC works
 
-### Markdown
+![RPC Workflow](res/RPC-Flow.png)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+1. Client initiates the request.
+2. The request along with metadata will be packed by the client stub.
+3. RPC buffer code will serialize the client request to server.
+4. The server RPC will receive the binary.
+5. TODO
+6. TODO
 
-```markdown
-Syntax highlighted code block
+## gRPC
 
-# Header 1
-## Header 2
-### Header 3
+- General purpose RPC (Remote Procedure Call) an open-source API framework developed by Google.
 
-- Bulleted
-- List
+- Transport layer of gRPC is HTTP and implemented in HTTP/2 version.
 
-1. Numbered
-2. List
+- Protocol buffer is being used as default Interface Descriptive Language.
+  - Schema is defined in `.proto` file, schema determines how data is being structured.
+  - `protoc` is used to generate stubs (data access classes) for selected programming language by providing respective `.proto` file as input.
+  - At runtime, messages are compressed and serialized in binary format.
 
-**Bold** and _Italic_ and `Code` text
+- A Client-Response model that supports Data Streaming with Event Driven Architecture.
+  - Uniary streaming. (Single Request-Single Response)
+  - Server-side streaming.
+  - Client-side streaming.
+  - Bi-directional streaming
 
-[Link](url) and ![Image](src)
-```
+- Efficient Parsing: Since messages are transferred in binary format which reduces size of encoded message making it less CPU-intensive for pasring. This results in faster exchange of messages even with slower CPU devices.
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+- Essential Schema: By enforsing to adhere strict schema, this ensures data structure intact so that protobufs can concentrate more on serialization/deserialization.
 
-### Jekyll Themes
+## Advantages of using Protobuf
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/bnvsp/grpc-python/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Please refer [Statistics](Statistics.md) for more details
 
-### Support or Contact
+## Configuring Python environment
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Please refer [Configuration](Configuration.md) to setup `Python` environment and configure gRPC service
