@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package birectional_stream;
+
+service BiDirectionalStream{
+    rpc bi_direction_stream(stream ClientRequest) returns (stream ServerResponse) {}
+}
+
+message ClientRequest{
+    string request_message = 1;
+}
+
+message ServerResponse{
+    int32 response_code = 1;
+    string response_message = 2;
+}
