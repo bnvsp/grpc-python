@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package client_stream;
+
+service ClientStream{
+    rpc stream_request(stream ClientStreamingRequest) returns (UnaryResponse) {}
+}
+
+message ClientStreamingRequest{
+    string client_message = 1;
+}
+
+message UnaryResponse{
+    int32 response_code = 1;
+    string response_status = 2;
+}

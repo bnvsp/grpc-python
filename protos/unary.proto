@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package unary;
+
+service Unary{
+    // Single-Request | Single-Response
+
+    rpc invoke_server(InitiateRequest) returns (FetchResponse) {}
+}
+
+message InitiateRequest{
+    string msg = 1;
+}
+
+message FetchResponse{
+    string msg = 1;
+    bool rcvd = 2;
+}

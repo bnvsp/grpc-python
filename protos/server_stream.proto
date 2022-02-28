@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package server_stream;
+
+service ServerStream{
+    rpc stream_response(ClientRequest) returns (stream ServerStreamResponse) {}
+}
+
+message ClientRequest{
+    string req_message = 1;
+}
+
+message ServerStreamResponse{
+    int32 status_code = 1;
+    string response_message = 2;
+}
