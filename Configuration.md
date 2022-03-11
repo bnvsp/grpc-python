@@ -15,6 +15,10 @@
   > python -m pip install grpcio-tools
   ```
 
+- Sample code:
+
+  - The sample code for each category of communication between client and server is available in [grpc-dev](https://github.com/bnvsp/grpc-python/tree/grpc-dev) branch, clone it out for reference.
+
 - Create `.proto` protobuf file
 
   ![Protobuf sample code](res/protobuf-sample-code.png)

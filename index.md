@@ -1,6 +1,6 @@
-# Intro to gRPC
+# ----------------- gRPC -----------------
 
-## WHAT
+## WHAT is gRPC?
 
 - General purpose RPC (Remote Procedure Call) an open-source API framework developed by Google.
 
@@ -17,7 +17,7 @@
   - Client-side streaming.
   - Bi-directional streaming
 
-## WHY
+## WHY gRPC is better?
 
 - Efficient Parsing: Since messages are transferred in binary format which reduces size of encoded message making it less CPU-intensive for pasring. This results in faster exchange of messages even with slower CPU devices.
 
@@ -25,7 +25,7 @@
 
 - Please refer [Statistics](Statistics.md) for more details
 
-## HOW
+## HOW gRPC works?
 
 ![RPC Workflow](res/RPC-Flow.png)
 
@@ -39,7 +39,7 @@
 - Configuring Python environment
   - Please refer [Configuration](Configuration.md) to setup `Python` environment and configure gRPC service
 
-## WHEN
+## WHEN gRPC was introduced?
 
 ![API Timeline](res/API-Timeline.png)
 
