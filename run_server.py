@@ -3,7 +3,11 @@ gRPC Client service runner
 """
 
 import sys
-from src.unary import server as unary_server
+
+from src.stream_bi_directional.server import run_streaming_client_server
+# from src.stream_client.server import run_stream_client_server
+# from src.stream_server.server import run_streaming_server
+# from src.unary.server import run_unary_server
 from src.config.log_config import LogMessage
 
 def main() -> None:
@@ -11,7 +15,7 @@ def main() -> None:
     Launcher module
     """
     LogMessage.configure()
-    unary_server.run_server()
+    run_streaming_client_server()
 
 if __name__ == "__main__":
     try:

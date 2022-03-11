@@ -1,33 +1,30 @@
 """
 gRPC Client
 """
-import sys
-import grpc
+
 from src.protos import unary_pb2_grpc as pb2_grpc
 from src.protos import unary_pb2 as pb2
 from src.shared import ClientInfo
 
-class SampleClient(ClientInfo):  # pylint: disable=too-few-public-methods
+class UnaryClient(ClientInfo):  # pylint: disable=too-few-public-methods
     """
     Client to interact with gRPC server
     """
 
     def __init__(self) -> None:
-        super().__init__()
-        try:
-            grpc.channel_ready_future(self.channel).result(timeout=10)
-        except grpc.FutureTimeoutError:
-            sys.exit("Trouble connecting to server... \nAborting client process..!!")
-        else:
-            self.stub = pb2_grpc.UnaryStub(self.channel)
+        super().__init__(service_stub=pb2_grpc.UnaryStub)
 
-    def get_url(self, message):
-        """get_url Fetch response
+def run_unary_client(test_message=None):
+    """get_url Fetch response
 
-        Args:
-            message (_type_): _description_
-        """
+    Args:
+        message (_type_): _description_
+    """
+    uc_obj = UnaryClient()
 
-        message = pb2.InitiateRequest(msg=message)
+    if test_message is None:
+        test_message = 'Message from Client'
 
-        return self.stub.invoke_server(message)
+    message = pb2.InitiateRequest(msg=test_message)
+
+    return uc_obj.stub.invoke_server(message)
