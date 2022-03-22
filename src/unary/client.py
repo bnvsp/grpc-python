@@ -20,6 +20,7 @@ def run_unary_client(test_message=None):
     Args:
         message (_type_): _description_
     """
+    
     uc_obj = UnaryClient()
 
     if test_message is None:
